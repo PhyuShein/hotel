@@ -10,8 +10,8 @@ public class HomeController {
 
     @GetMapping("/")
     public String home(Model model){
-        model.addAttribute("tagline","home Page");
-        return "home";
+       // model.addAttribute("tagline","home Page");
+        return "layout/adminlayout";
     }
 
 }
