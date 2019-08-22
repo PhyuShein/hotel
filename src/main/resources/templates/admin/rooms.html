@@ -8,12 +8,24 @@
 </head>
 <body>
 
-    <div layout:fragment="admin" style="border-color: greenyellow;">
+    <div layout:fragment="admin">
         <div class="container">
+
+            <div th:if="${deleteSuccess}" class="alert alert-success" role="alert">
+                Successfully Deleted!
+            </div>
+
             <div class="row">
                 <div class="col-sm-3" th:each="room:${rooms}">
-                    <div class="card" style="width: 18rem;">
-                        <div class="card-body" th:style="${room.roomStatus == room.roomStatus.Reverse }? ${'background-color: green'}:${'background-color: yellow'}"></div>
+                    <div class="card my-4" style="width: 18rem;" th:style="${room.roomStatus == room.roomStatus.Reverse }? ${'border-color: green'}:${'border-color: red'}">
+                        <div class="card-header text-muted text-center">Room</div>
+                            <div class="card-body" >
+
+                                <p class="card-text" th:text="${'Room Number:'+room.roomsNumber}"></p>
+                                <p class="card-text" th:text="${'Room Status:'+room.roomStatus}"></p>
+                                <p class="card-text" th:text="${'Room Type:'+room.roomType}"></p>
+                                <a href="#" th:href="@{'/room/'+${room.id}}" class="btn btn-primary btn-sm">Go Detail</a>
+                        </div>
                     </div>
                 </div>
             </div>

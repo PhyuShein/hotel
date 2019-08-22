@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="./layout/adminlayout.html">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div layout:fragment="admin">
+        <div class="container">
+            <h1 class="text-center text-muted">Room Details</h1>
+
+
+            <div class="row mt-4">
+                <div class="col-sm-8">
+                    <img src="../../static/images/1.jpg" th:src="@{'/images/'+${room.getRoomsNumber()}+'.jpg'}" class="rounded img-fluid" alt="image" >
+                </div>
+                <div class="col-sm-4">
+                    <p th:text="${'Room Number ' + room.roomsNumber}" class="display-5 text-info"></p>
+                    <p th:text="${'Room Status ' + room.roomStatus}" class="display-5 text-info"></p>
+                    The boy who cried wolf. Once upon a time, there lived a shepherd boy who was bored watching his flock of sheep on the hill.
+                    The Midas touch. Image: iStock. The golden egg. Image: Shutterstock.
+                    The miser and his gold. Image: iStock. The tortoise and the bird.
+                </div>
+            </div>
+
+                <div class="row">
+                    <a href="#" class="btn btn-primary" th:href="@{'/room/delete/'+${room.id}}">Delete</a>
+                </div>
+
+        </div>
+    </div>
+</body>
+</html>

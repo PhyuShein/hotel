@@ -6,7 +6,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 public class RoomController {
@@ -34,6 +36,18 @@ public class RoomController {
     @GetMapping("/rooms")
     public String showRooms(Model model){
         model.addAttribute("rooms",roomService.findAll());
+        model.addAttribute("deleteSuccess",model.containsAttribute("delete"));
         return "admin/rooms";
+    }
+    @GetMapping("/room/{id}")
+    public String showRoomDetails(Model model, @PathVariable("id")long id){
+        model.addAttribute("room",roomService.findById(id));
+        return "admin/roomdetail";
+    }
+    @GetMapping("/room/delete/{id}")
+    public String deleteRoom(@PathVariable("id") long id, RedirectAttributes redirectAttributes){
+        roomService.delete(id);
+        redirectAttributes.addFlashAttribute("delete",true);
+        return "redirect:/rooms";
     }
 }
