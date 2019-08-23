@@ -2,6 +2,8 @@ package com.example.hotelmanagenetsystem.controller;
 
 import com.example.hotelmanagenetsystem.model.Rooms;
 import com.example.hotelmanagenetsystem.service.RoomService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -10,9 +12,12 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import javax.servlet.http.HttpServletRequest;
+
 @Controller
 public class RoomController {
 
+    private Logger logger = LoggerFactory.getLogger(this.getClass());
     private final RoomService roomService;
 
     public RoomController(RoomService roomService) {
@@ -37,6 +42,7 @@ public class RoomController {
     public String showRooms(Model model){
         model.addAttribute("rooms",roomService.findAll());
         model.addAttribute("deleteSuccess",model.containsAttribute("delete"));
+        model.addAttribute("updateSuccess",model.containsAttribute("update"));
         return "admin/rooms";
     }
     @GetMapping("/room/{id}")
@@ -49,5 +55,25 @@ public class RoomController {
         roomService.delete(id);
         redirectAttributes.addFlashAttribute("delete",true);
         return "redirect:/rooms";
+    }
+    @GetMapping("/room/update/{id}")
+    public String updateRoom(Model model,@PathVariable("id") long id){
+        model.addAttribute("room",roomService.findById(id));
+        this.updateId=id;
+        return "admin/updateRoom";
+    }
+    private long updateId;
+
+    @PostMapping("/room/update")
+    public String processUpdate(Rooms rooms,RedirectAttributes redirectAttributes){
+        roomService.update(updateId,rooms);
+        redirectAttributes.addFlashAttribute("update","true");
+        return "redirect:/rooms";
+    }
+    @GetMapping("/findroom")
+    public String searchRoom(Model model, HttpServletRequest request){
+        Rooms rooms=roomService.findByRommsNumber(request.getParameter("roomnumber"));
+        model.addAttribute("room",rooms);
+        return "redirect:/room/" + rooms.getId();
     }
 }

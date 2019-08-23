@@ -1,6 +1,8 @@
 package com.example.hotelmanagenetsystem.aspect;
 
+import com.example.hotelmanagenetsystem.exception.RoomNotFoundException;
 import com.example.hotelmanagenetsystem.model.Rooms;
+import com.example.hotelmanagenetsystem.repository.RoomRepostiory;
 import com.example.hotelmanagenetsystem.service.RoomService;
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
@@ -22,8 +24,11 @@ public class HotelAspect {
 
     private final RoomService roomService;
 
-    public HotelAspect(RoomService roomService) {
+    private final RoomRepostiory roomRepostiory;
+
+    public HotelAspect(RoomService roomService,RoomRepostiory roomRepostiory) {
         this.roomService = roomService;
+        this.roomRepostiory = roomRepostiory;
     }
 
     @Before("execution(* *.processRooms(..))")
@@ -51,5 +56,12 @@ public class HotelAspect {
             if(rooms==null) {
                 throw new EntityNotFoundException((long)args[1]+ "Not Found");
             }
+        }
+        @Before("execution(* *.findByRommsNumber(..))")
+        public void roomNotFoundFindAspect(JoinPoint joinpoint){
+        Object[] arg = joinpoint.getArgs();
+        Rooms rooms = roomRepostiory.findByRoomsNumber(String.valueOf(arg[0]))
+                .orElseThrow(()->new RoomNotFoundException(arg[0]+" Not Found."));
+
         }
 }
