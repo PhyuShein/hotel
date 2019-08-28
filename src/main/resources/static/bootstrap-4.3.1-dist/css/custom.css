@@ -1,0 +1,14 @@
+#head-image{
+
+    background: url("../../images/bg1.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+.navbar-color .navbar-brand{
+    color:#dac525;
+}
+.ultxt{
+    color: white;
+}
