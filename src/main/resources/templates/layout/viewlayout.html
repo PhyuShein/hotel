@@ -12,76 +12,195 @@
     <link rel="stylesheet" href="../../static/bootstrap-4.3.1-dist/css/custom.css" th:href="@{/bootstrap-4.3.1-dist/css/custom.css}">
 
 </head>
-<body id="head-image">
+<body >
 
-    <div class="container-fluid">
-    <div class="row my-4">
-        <h3 class="text-white justify-content-start col ml-3">Delux</h3>
-        <ul class="nav justify-content-end">
-            <li class="nav-item col">
-                <a class="nav-link active text-white mx-3" href="#">Active</a>
-            </li>
+    <div id="head-image" style="position:relative; height: 100vh;">
+        <div class="navbar navbar-expand-md fixed-top">
+            <h3 class="navbar-brand text-white">
+                <a href="#" th:href="@{/home}"> Delux </a></h3>
+            <ul class="nav navbar-nav ml-auto">
 
-            <li class="nav-item col">
-                <a class="nav-link active text-white mx-3" href="#">Link</a>
-            </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white" href="#" th:href="@{/view/rooms}">Rooms</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Link</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="#">Disabled</a>
+                </li>
+            </ul>
+        </div>
+        <div class="text-white text-center" style="position: absolute; top: 30%; left: 30%;">
+            <h3 class="display-2">Welcome to The Deluxe</h3>
+            <p class="text-white display-3">Hotel &amp; Resort</p>
+        </div>
 
-            <li class="nav-item col">
-                <a class="nav-link active text-white mx-3" href="#">Contact</a>
-            </li>
-            <li class="nav-item col">
-                <a class="nav-link active text-white mx-3" href="#">Disable</a>
-            </li>
-        </ul>
     </div>
-    </div>
+
 
     <div class="text-white text-center">
         <h3>Welcome to the Delux</h3>
         <p class="text-muted">Hotel &amp; Resort</p>
     </div>
 
+    </div>
+
+    <div layout:fragment="view">
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <img src="../../static/images/image5.jpg" th:src="@{/images/image5.jpg}" width="300" height="500">
+                </div>
+                <div class="col-md-7">
+                    <div>
+                        <h3 class="text-center text-info">Welcome to Deluxe Hotel</h3>
+                        <h5 class="text-center text-muted">Welcome to Our Hotel</h5>
+                    </div>
+
+                    <div>
+                        <p>On her way she met a copy. The copy warned the Little Blind Text,
+                            that where it came from it would have been rewritten a thousand times
+                            and everything that was left from its origin would be the word "and" and the Little Blind
+                            Text should turn around and return to its own, safe country. But nothing the copy said
+                            could convince her and so it didn’t take long until a few insidious Copy Writers ambushed her,
+                            made her drunk with Longe and Parole and dragged her into their agency, where they abused her for their.</p>
+                        <p>When she reached the first hills of the Italic Mountains, she had a last
+                            view back on the skyline of her hometown Bookmarksgrove, the headline of Alphabet Village
+                            and the subline of her own road, the Line Lane. Pityful a rethoric question ran over her cheek,
+                            then she continued her way.</p>
+                    </div>
+
+                    <div class="row mt-md-3">
+                        <span><i class="fab fa-twitter mr-md-3"></i></span>
+                        <span><i class="fab fa-facebook mr-md-3"></i> </span>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <section>
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3">
+                    <h5 class="text-center text-info mt-3">Front Desk
+                        <p><i class="fas fa-desktop fa-3x"></i></p></h5>
+                    <p>A small river name dued flow by their place.</p>
+                </div>
+
+                <div class="col-sm-3 ">
+                    <h5 class="text-center text-info mt-3">Restaurant Bar
+                        <p><i class="fas fa-utensils fa-3x"></i></p></h5>
+                    <p>A small river name dued flow by their place.</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <h5 class="text-center text-info mt-3">Transfer Services
+                        <p><i class="fas fa-taxi fa-3x"></i></p></h5>
+                    <p>A small river name dued flow by their place.</p>
+                </div>
+
+                <div class="col-sm-3">
+                    <h5 class="text-center text-info mt-3">Front Desk
+                        <p><i class="fas fa-spa fa-3x"></i></p></h5>
+                    <p>A small river name dued flow by their place.</p>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
-<!--    <nav class="navbar navbar-expand-lg navbar-color bg-light"  >-->
-<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
-<!--            <span class="navbar-toggler-icon"></span>-->
-<!--        </button>-->
 
-<!--        <a class="navbar-brand" href="#">Delux</a>-->
+    <section>
+        <div class="container bg-light">
+            <div class="mx-auto " style="width: 100%;height: 300px">
+                <h3 class="text-center text-dark">Our Rooms</h3>
+            </div>
+        </div>
 
-<!--        <div class="collapse navbar-collapse" id="navvarTogglerDemo03">-->
-<!--            <ul class="navbar-nav ml-auto mt-2 mt-lg-0 mr-3 justify-content-end ">-->
-<!--                <li class="nav-item active mx-3">-->
-<!--                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>-->
-<!--                </li>-->
-<!--                <li class="nav-item mx-3">-->
-<!--                    <a class="nav-link" href="#">Rooms</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item mx-3">-->
-<!--                    <a class="nav-link" href="#">About</a>-->
-<!--                </li>-->
-<!--                <li class="nav-item mx-3">-->
-<!--                    <a class="nav-link" href="#">Contact</a>-->
-<!--                </li>-->
-
-<!--            </ul>-->
-
-<!--        </div>-->
-
-<!--    </nav>-->
+        <div class="row my-4">
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    <img class="card-mg-top" src="../../static/images/1.jpg" th:src="@{/images/1.jpg}">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to bulid </p>
+                        <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Rooms</a>
+                    </div>
+                </div>
+            </div>
 
 
-<!--    <div id="head-image">-->
-<!--        <div class="container">-->
-<!--            <p>The very short stories for kids are collected diligently and presented here for your reference. Our team of story-narrators have spent a lot of time off-line to collect all these short stories,-->
-<!--                changed them suitable to our readers and presented them here for your reference. WE always salute them for their relentless efforts.-->
-<!--                They also have created few short stories of their own. Our readers who have been visiting this site for a long time have repeatedly asked us to add more number of short stories. In order to meet their demands, we did our best of efforts. Our thousands of readers have appreciated our contribution and efforts. With their help, we are continuously adding more and more number of short stories. It is only YOU who should judge our works-->
-<!--                The very short stories for kids are collected diligently and presented here for your reference. Our team of story-narrators have spent a lot of time off-line to collect all these short stories, changed them suitable to our readers and presented them here for your reference. WE always salute them for their relentless efforts. They also have created few short stories of their own. Our readers who have been visiting this site for a long time have repeatedly asked us to add more number of short stories. In order to meet their demands, we did our best of efforts. Our thousands of readers have appreciated our contribution and efforts. With their help, we are continuously adding more and more number of short stories.-->
-<!--                It is only YOU who should judge our works</p>-->
-<!--        </div>-->
-<!--    </div>-->
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    <img class="card-mg-top" src="../../static/images/1.jpg" th:src="@{/images/1.jpg}">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to bulid </p>
+                        <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Rooms</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    <img class="card-mg-top" src="../../static/images/1.jpg" th:src="@{/images/1.jpg}">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to bulid </p>
+                        <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Rooms</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    <img class="card-mg-top" src="../../static/images/1.jpg" th:src="@{/images/1.jpg}">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to bulid </p>
+                        <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Rooms</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    <img class="card-mg-top" src="../../static/images/1.jpg" th:src="@{/images/1.jpg}">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to bulid </p>
+                        <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Rooms</a>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="col-sm-4">
+                <div class="card" style="width:18rem;">
+                    <img class="card-mg-top" src="../../static/images/1.jpg" th:src="@{/images/1.jpg}">
+                    <div class="card-body">
+                        <p class="card-text">Some quick example text to bulid </p>
+                        <a href="#" th:href="@{/room/1}" class="btn btn-primary btn-sm">Go Rooms</a>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    </div>
+
 
 </body>
 </html>
