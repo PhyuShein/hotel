@@ -2,7 +2,9 @@ package com.example.hotelmanagenetsystem.config;
 
 
 import com.example.hotelmanagenetsystem.exception.RoomNotFoundException;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -25,6 +27,11 @@ public class WebConfig implements WebMvcConfigurer {
         modelAndView.setViewName("admin/roomexistederror");
         return modelAndView;
     }
+@Bean
+public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
+        return bCryptPasswordEncoder;
+}
 }
 
 
